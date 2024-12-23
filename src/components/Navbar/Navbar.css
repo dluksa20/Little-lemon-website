@@ -1,0 +1,162 @@
+/* Base Styles */
+:root {
+    --primary-color-1: #495f58;
+    --primary-color-2: #f4ce14;
+    --secondary-color-1: #EE9972;
+    --secondary-color-2: #FBDABB;
+    --highlight-color-1: #EDEFEE;
+    --highlight-color-2: #333333;
+    --shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
+    --f-header: 'Karla', 'sans-serif';
+    --f-text: 'Markazi Text', 'sans-serif';
+    --f-bold: 600; 
+}
+
+/* General Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.nav-container {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'links logo icons';
+    align-items: center;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    position: absolute;
+    z-index: 1;
+    /* background: linear-gradient(to right, var(--highlight-color-1) 30%, var(--primary-color-2) 120%); */
+    background: linear-gradient(to bottom, rgba(237, 239, 238, 0.8) 1%, rgba(244, 206, 20, 0.4) 170%);
+    border-end-start-radius: 10%;
+    border-end-end-radius: 65%;
+
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    grid-area: logo;
+
+}
+
+/* Navigation icons */
+.icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    grid-area: icons;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background-color: var(--background-color);
+    cursor: pointer;
+}
+
+.profile-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color-1);
+}
+
+.login-text {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--primary-color-1);
+    margin-left: 0.5rem;
+    opacity: 0; /* Initially hidden */
+    width: 0; /* Hide the text by default */
+    transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.icon-box:hover .login-text {
+    opacity: 1; /* Show the text on hover */
+    width: auto; /* Expand to fit the text */
+}
+
+.icon-box:hover {
+    transform: scale(1.05); /* Optional: scale effect on hover */
+    transition: transform 0.3s ease;
+}
+
+.basket-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color-1);
+    cursor: pointer;
+}
+
+
+
+
+/* Navigation links */
+.links-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    grid-area: links;
+}
+.links-container a {
+    text-transform: uppercase;
+    font-family: var(--f-header);
+    font-weight: var(--f-bold);
+    color: var(--primary-color-1);
+    position: relative;
+    text-decoration: none; 
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.links-container a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; 
+    background-color: var(--primary-color-1);
+    transition: width 0.3s ease-in-out; 
+    scale: 105%;
+}
+.links-container a:hover {
+    transform: scale(1.15);
+}
+
+.links-container a:hover::after {
+    width: 100%;
+}
+
+
+.logo {
+    max-height: 60px;
+}
+
+@media(max-width: 1024px) {
+    .nav-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            'logo logo icons icons'
+            'links links links links';
+    }
+
+    .icons-container {
+        justify-content: end;
+        padding-right: 4rem;
+    }
+    .logo-container {
+        justify-content: start;
+        padding-left: 4rem;
+    }
+    .links-container {
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+    }
+    .logo {
+        max-height: 50px;
+    }
+}
