@@ -32,7 +32,7 @@ body {
     display: grid;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     background-color: var(--highlight-color-1);
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
                       url('../../src/assets/images/lemon.png'),
@@ -85,8 +85,8 @@ body {
     align-items: center;
     justify-content: center;
     grid-template-columns: 1fr 1fr;
-    max-height: 1440px;
-    max-width: 2160px;
+    max-height: 100%;
+    max-width: 100%;
     padding: 0 2rem;
     animation: fadeIn 1.5s ease-in-out;
 }
